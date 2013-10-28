@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install version="1.0" type="plugin" group="vmpayment" method="upgrade">
+    <name>Gerêncianet</name>
+    <creationDate>Outubro 2013</creationDate>
+    <author>Gerêncianet Pagamentos do Brasil</author>
+    <authorUrl>https://gerencianet.com.br</authorUrl>
+    <copyright>Copyright (C) Gerencianet. Todos os direitos reservados.</copyright>
+    <license>http://www.apache.org/licenses/LICENSE-2.0</license>
+    <version>1.0</version>
+    <description>Receba pagamentos por cartão de crédito e boleto bancário.</description>
+    <files>
+        <filename plugin="gerencianet">gerencianet.php</filename>
+        <filename>index.html</filename>
+        <folder>GerencianetLibrary</folder>
+    </files>
+    <media folder="images" destination="/images/stories/virtuemart/payment">
+        <filename>gerencianet.png</filename>
+    </media>
+    <params addpath="/administrator/components/com_virtuemart/elements">
+        <param type="vmjpluginwarning" />
+        <param type="spacer" default="" level="level1" />
+        <param type="spacer"
+               default="&lt;strong&gt;Gerêncianet.&lt;/strong&gt; Receba pagamentos por cartão de crédito e boleto bancário." level="level1" />
+        <param type="spacer" default="" level="level1" />
+        <param type="spacer"
+               default="Você precisa informar alguns dados antes de começar a usar o módulo de integração com a Gerêncianet."
+               level="level1" />
+        <param type="spacer" default="" level="level1" />
+        <param name="payment_logos" type="vmfiles" label="LOGOTIPOS" description="VMPAYMENT_STANDARD_LOGOS_DESC" directory="/media/images/stories/virtuemart/payment" default="default" hide_default="1" hide_none="1" stripext="0" exclude="^_" />
+        <param type="spacer" default="" level="level1" />
+        <param type="text" name="gerencianet_token" size="40" label="TOKEN"
+               default="informe seu token de integração com a gerêncianet"
+               description="Para oferecer a Gerêncianet em sua loja é necessário ter um token de integração cadastrado em sua conta. Acesse o &lt;a href='http://gerencianet.com.br/portal/desenvolvedor/virtuemart'target='_blank'&gt;Portal do Desenvolvedor&lt;/a&gt; e saiba como cadastrar." />
+        <param type="spacer" default="" level="level1" />
+        <param type="radio" name="gerencianet_charset" label="CHARSET" default="UTF-8" description="Informe a codificação utilizada pelo seu sistema. Isso irá prevenir que as transações gerem possíveis erros ou quebras ou ainda que caracteres especiais possam ser apresentados de maneira diferente do habitual.">
+            <option value="UTF-8">UTF-8</option>
+            <option value="ISO-8859-1">ISO-8859-1</option>
+        </param>
+        <param type="spacer" default="" level="level1" />
+        <param type="spacer" default="&lt;strong&gt;Status da compra." />
+        <param type="spacer" default="" level="level1" />
+        <param name="status_waiting_payment" type="vmorderstate" default="P" label="AGUARDANDO PAGAMENTO"
+               description="O comprador iniciou a transação, mas até o momento a Gerêncianet não recebeu nenhuma informação sobre o pagamento." />
+        <param name="status_paid" type="vmorderstate" default="U" label="PAGO"
+               description="A transação foi paga pelo comprador e a Gerêncianet já recebeu uma confirmação da instituição financeira responsável pelo processamento." />
+    </params>
+</install>
